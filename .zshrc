@@ -28,6 +28,9 @@ neofetch
 # Keep track of dotfiles at $HOME
 alias config='/usr/bin/git --git-dir=/home/tmasson/.cfg --work-tree=/home/tmasson'
 
+# Alias to open pdf files
+alias open='xdg-open'
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/tmasson/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
