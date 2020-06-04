@@ -27,6 +27,9 @@ else
 endif
   Plug 'zchee/deoplete-jedi'
 
+" Snakemake syntax support
+  Plug 'raivivek/vim-snakemake'
+
 " Keep track of changes control
   Plug 'airblade/vim-gitgutter'
 
@@ -53,6 +56,7 @@ let g:deoplete#enable_at_startup = 1
 set number
 syntax on
 syntax enable
+set spelllang=en,es 
 
 " Don't open Markdown preview as start
 let g:instant_markdown_autostart = 0
@@ -69,6 +73,10 @@ set autoindent
 
 " Changes update time
 set updatetime=100
+
+" Snamake syntax support
+au BufNewFile,BufRead Snakefile set syntax=snakemake
+au BufNewFile,BufRead *.snake set syntax=snakemake
 
 " colorscheme
 colorscheme gruvbox
