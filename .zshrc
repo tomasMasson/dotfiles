@@ -26,10 +26,13 @@ alias ls='ls --color=auto'
 neofetch
 
 # Keep track of dotfiles at $HOME
-alias config='/usr/bin/git --git-dir=/home/tmasson/.cfg --work-tree=/home/tmasson'
+alias config='/usr/bin/git --git-dir=/home/tmasson/.myconfig --work-tree=/home/tmasson'
 
 # Alias to open pdf files
 alias open='xdg-open'
+
+# Add Diamond path (fro Broccoli)
+export PATH=/home/tmasson/diamond:$PATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
