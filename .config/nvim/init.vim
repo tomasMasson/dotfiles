@@ -1,21 +1,29 @@
 let g:plugged_home = '~/.vim/plugged'
 
 " Setting python providers inside conda environments
-let g:python3_host_prog = '/home/tmasson/miniconda3/bin/python'
+"let g:python3_host_prog = '/home/tmasson/miniconda3/bin/python'
 
 " Plugins List
 call plug#begin(g:plugged_home)
 
-  " Color Scheme
+  " Airline
   Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+
+  " Add colorschemes
+  Plug 'cocopon/iceberg.vim'
   Plug 'morhetz/gruvbox'
 
-  " Better Visual Guide
+  " Better Visual Guide for Indentation
   Plug 'Yggdroot/indentLine'
 
-  " Asynchronous Lint Engine
-  Plug 'w0rp/ale'
+  " Brackets auto closing
+  Plug 'itmammoth/doorboy.vim'
+
+  " Asynchronous Lint Engine (requires a Lint provider like flake8)
+  Plug 'dense-analysis/ale'
+
+  " Static Syntax checker for Python (requires flake8 from pip)
+  Plug 'nvie/vim-flake8'
 
   " Deoplete Python autocompletion
 if has('nvim')
@@ -25,26 +33,32 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-  Plug 'zchee/deoplete-jedi'
+  Plug 'deoplete-plugins/deoplete-jedi'
 
-" Snakemake syntax support
+  " Syntax Semantic Highlighting for Python
+  Plug 'numirias/semshi'
+
+  " Snakemake syntax support
   Plug 'raivivek/vim-snakemake'
 
-" Keep track of changes control
+  " Keep track of Git source code changes
   Plug 'airblade/vim-gitgutter'
 
-" Display colors
+  " Display hex colors
   Plug 'ap/vim-css-color'
 
-" Goyo distraction-free writing
+  " Goyo distraction-free writing
   Plug 'junegunn/goyo.vim'
 
-" Browser preview for Markdown
+  " Browser preview for Markdown
   Plug 'suan/vim-instant-markdown', {'for': 'markdown'} 
 
-" Pandoc citation and syntax support
+  " Pandoc citation and syntax support
   Plug 'vim-pandoc/vim-pandoc'
   Plug 'vim-pandoc/vim-pandoc-syntax'
+
+  " HTML syntax support 
+  Plug 'othree/html5.vim'
 
 call plug#end()
 
@@ -57,6 +71,13 @@ set number
 syntax on
 syntax enable
 set spelllang=en,es 
+
+" Lightline configuration
+set laststatus=2
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'icebergDark',
+      \ }
 
 " Don't open Markdown preview as start
 let g:instant_markdown_autostart = 0
@@ -78,6 +99,10 @@ set updatetime=100
 au BufNewFile,BufRead Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
 
-" colorscheme
-colorscheme gruvbox
+" Set 256 colors support
+set t_Co=256
+
+" Set colorscheme
+colorscheme iceberg
+"colorscheme gruvbox
 set background=dark
