@@ -32,6 +32,9 @@ alias open='xdg-open'
 # Add Diamond path (fro Broccoli)
 export PATH=/home/tmasson/diamond:$PATH
 
+# Add hhsuite path
+export PATH=/home/tmasson/old_home/tmasson/hh-suite/build/bin:$PATH
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/tmasson/old_home/tmasson/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"

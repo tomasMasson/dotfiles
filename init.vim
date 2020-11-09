@@ -68,6 +68,10 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " Set quick escape in insert mode
 inoremap jk <esc>
+"Quick comment in Python
+noremap <leader>c 0i#<esc>
+"Quick uncomment in Python
+noremap <leader>u 0x
 
 " UI configuration
 filetype plugin indent on
