@@ -1,7 +1,7 @@
 let g:plugged_home = '~/.vim/plugged'
 
 " Setting python providers inside conda environments
-let g:python3_host_prog = '/home/tmasson/old_home/tmasson/miniconda3/bin/python'
+let g:python3_host_prog = '/home/tmasson/miniconda3/bin/python'
 "let g:python3_host_prog = '/usr/bin/python3.8'
 
 " Plugins List
@@ -27,11 +27,12 @@ call plug#begin(g:plugged_home)
   " Static Syntax checker for Python (manual; requires flake8 from pip)
   Plug 'nvie/vim-flake8'
 
-  " Syntax Semantic Highlighting for Python
-  Plug 'numirias/semshi'
+  " Syntax highlight
+  Plug 'vim-python/python-syntax'
 
   " Snakemake syntax support
-  Plug 'raivivek/vim-snakemake'
+  Plug 'snakemake/snakemake', {'rtp': 'misc/vim'}
+  "Plug 'raivivek/vim-snakemake'
 
   " Keep track of Git source code changes
   Plug 'airblade/vim-gitgutter'
@@ -51,9 +52,6 @@ call plug#begin(g:plugged_home)
 
   " HTML syntax support 
   Plug 'othree/html5.vim'
-
-  " Vim Wiki
-  Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -89,10 +87,6 @@ let g:lightline = {
 
 " Don't open Markdown preview as start
 let g:instant_markdown_autostart = 0
-
-" VimWiki markdown flavor
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " Search configuration
 set ignorecase                    " ignore case when searching
