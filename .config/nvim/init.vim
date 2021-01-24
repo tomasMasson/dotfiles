@@ -25,16 +25,6 @@ call plug#begin(g:plugged_home)
   " Static Syntax checker for Python (requires flake8 from pip)
   Plug 'nvie/vim-flake8'
 
-  " Deoplete Python autocompletion
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-  Plug 'deoplete-plugins/deoplete-jedi'
-
   " Syntax Semantic Highlighting for Python
   Plug 'numirias/semshi'
 
@@ -62,11 +52,27 @@ endif
 
 call plug#end()
 
-" Configurations Part
+" Remap leader key to space bar
+let mapleader = " "
+
+" Quick vimrc editing
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" Quick vimrc sourcing
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Quick escape from interactive mode
+inoremap jk <esc>
+
+" Navigation keybindings
+
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
 
 " UI configuration
 filetype plugin indent on
-let g:deoplete#enable_at_startup = 1
 set number
 syntax on
 syntax enable
