@@ -64,6 +64,9 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Quick escape from interactive mode
 inoremap jk <esc>
 
+" Quick escape from vim terminal
+tnoremap kj <C-\><C-n>
+
 " Navigation keybindings
 
 nnoremap <silent> <C-k> :wincmd k<CR>
