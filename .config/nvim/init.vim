@@ -94,9 +94,10 @@ set smartcase                     " turn on smartcase
 
 " Tab and Indent configuration
 set expandtab
-set tabstop=4
-set shiftwidth=4
 set autoindent
+
+" Set HTML indentation
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
 " Changes update time
 set updatetime=100
