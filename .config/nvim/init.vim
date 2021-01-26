@@ -1,7 +1,7 @@
 let g:plugged_home = '~/.vim/plugged'
 
 " Setting python providers inside conda environments
-"let g:python3_host_prog = '/home/tmasson/miniconda3/bin/python'
+let g:python3_host_prog = '/home/tmasson/miniconda3/bin/python'
 
 " Plugins List
 call plug#begin(g:plugged_home)
@@ -73,6 +73,10 @@ nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
 nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-l> :wincmd l<CR>
+
+" Set default splits to right and bottom
+set splitbelow
+set splitright
 
 " UI configuration
 filetype plugin indent on
