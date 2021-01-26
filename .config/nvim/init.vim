@@ -41,7 +41,7 @@ call plug#begin(g:plugged_home)
   Plug 'junegunn/goyo.vim'
 
   " Browser preview for Markdown
-  Plug 'suan/vim-instant-markdown', {'for': 'markdown'} 
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
   " Pandoc citation and syntax support
   Plug 'vim-pandoc/vim-pandoc'
@@ -91,9 +91,6 @@ set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'icebergDark',
       \ }
-
-" Don't open Markdown preview as start
-let g:instant_markdown_autostart = 0
 
 " Search configuration
 set ignorecase                    " ignore case when searching
