@@ -61,6 +61,9 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " Quick vimrc sourcing
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Spawn a terminal window at the bottom
+nnoremap <leader>t :split <bar> term <cr>
+
 " Quick escape from interactive mode
 inoremap jk <esc>
 
