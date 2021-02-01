@@ -50,7 +50,18 @@ call plug#begin(g:plugged_home)
   " HTML syntax support 
   Plug 'othree/html5.vim'
 
+  "
+  Plug 'mhinz/vim-startify'
+
 call plug#end()
+
+let g:startify_custom_header = [
+\ '▀█▄   ▀█▀                           ██             ', 
+ \ ' █▀█   █    ▄▄▄▄    ▄▄▄   ▄▄▄▄ ▄▄▄ ▄▄▄  ▄▄ ▄▄ ▄▄   ',
+ \ ' █ ▀█▄ █  ▄█▄▄▄██ ▄█  ▀█▄  ▀█▄  █   ██   ██ ██ ██  ',
+ \ ' █   ███  ██      ██   ██   ▀█▄█    ██   ██ ██ ██  ',
+ \ '▄█▄   ▀█   ▀█▄▄▄▀  ▀█▄▄█▀    ▀█    ▄██▄ ▄██ ██ ██▄ ',
+ \ ]
 
 " Remap leader key to space bar
 let mapleader = " "
