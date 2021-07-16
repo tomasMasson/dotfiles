@@ -50,7 +50,7 @@ call plug#begin(g:plugged_home)
   " HTML syntax support 
   Plug 'othree/html5.vim'
 
-  "
+  " Fancy start menu
   Plug 'mhinz/vim-startify'
 
 call plug#end()
@@ -73,13 +73,25 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Spawn a terminal window at the bottom
-nnoremap <leader>t :split <bar> term <cr>
+nnoremap <leader>ht :split <bar> term <cr>
+
+" Spawn a terminal window at the right
+nnoremap <leader>vt :vsplit <bar> term <cr>
 
 " Quick escape from interactive mode
 inoremap jk <esc>
 
 " Quick escape from vim terminal
-tnoremap kj <C-\><C-n>
+tnoremap qq <C-\><C-n>
+
+" Insert a blank line below
+nnoremap <Enter> o<Esc>
+
+" Insert a blank line above
+nnoremap <S-Enter> O<Esc>
+
+" Timestamp the current file
+nnoremap <leader>ts Go<Esc>oLast modified: <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 
 " Navigation keybindings
 
@@ -87,6 +99,9 @@ nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
 nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-l> :wincmd l<CR>
+
+" Quick italicize during Markdown editing
+nnoremap <C-i> bi*<esc>ea*<esc>
 
 " Set default splits to right and bottom
 set splitbelow
