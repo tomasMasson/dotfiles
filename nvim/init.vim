@@ -15,25 +15,27 @@ endif
 
 call plug#begin(data_dir . '/plugins')
 
+source ~/.config/nvim/plugins/ale.vim
 source ~/.config/nvim/plugins/coc.vim
-source ~/.config/nvim/plugins/airline.vim
+source ~/.config/nvim/plugins/doorboy.vim
+source ~/.config/nvim/plugins/goyo.vim
 source ~/.config/nvim/plugins/iceberg.vim
 source ~/.config/nvim/plugins/indentLine.vim
-source ~/.config/nvim/plugins/doorboy.vim
-source ~/.config/nvim/plugins/ale.vim
-source ~/.config/nvim/plugins/flake8.vim
-source ~/.config/nvim/plugins/semshi.vim
-source ~/.config/nvim/plugins/snakemake.vim
-source ~/.config/nvim/plugins/gitgutter.vim
-source ~/.config/nvim/plugins/css_color.vim
-source ~/.config/nvim/plugins/goyo.vim
-source ~/.config/nvim/plugins/markdown_preview.vim
+source ~/.config/nvim/plugins/lualine.vim
+source ~/.config/nvim/plugins/markdown-preview.vim
 source ~/.config/nvim/plugins/pandoc.vim
-source ~/.config/nvim/plugins/startify.vim
+source ~/.config/nvim/plugins/semshi.vim
+source ~/.config/nvim/plugins/telescope.vim
+" source ~/.config/nvim/plugins/vim-airline.vim
+source ~/.config/nvim/plugins/vim-commentary.vim
+source ~/.config/nvim/plugins/vim-css-color.vim
+source ~/.config/nvim/plugins/vim-devicons.vim
+source ~/.config/nvim/plugins/vim-flake8.vim
+source ~/.config/nvim/plugins/vim-gitgutter.vim
+source ~/.config/nvim/plugins/vim-snakemake.vim
+source ~/.config/nvim/plugins/vim-startify.vim
 
 call plug#end()
-
-doautocmd User PlugLoaded
 
 let g:startify_custom_header = [
 \ '▀█▄   ▀█▀                           ██             ', 
@@ -70,6 +72,14 @@ set updatetime=100
 au BufNewFile,BufRead Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
 set t_Co=256
+colorscheme iceberg
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+lua << END
+require('lualine').setup()
+options = {theme = 'iceberg_dark'}
+END
 
 
 "-----------------------------------------------------------
