@@ -26,7 +26,6 @@ source ~/.config/nvim/plugins/markdown-preview.vim
 source ~/.config/nvim/plugins/pandoc.vim
 source ~/.config/nvim/plugins/semshi.vim
 source ~/.config/nvim/plugins/telescope.vim
-" source ~/.config/nvim/plugins/vim-airline.vim
 source ~/.config/nvim/plugins/vim-commentary.vim
 source ~/.config/nvim/plugins/vim-css-color.vim
 source ~/.config/nvim/plugins/vim-devicons.vim
