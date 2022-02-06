@@ -6,6 +6,9 @@ let g:python3_host_prog = '/home/tmasson/miniconda3/bin/python'
 " Plugins List
 call plug#begin(g:plugged_home)
 
+  " CoC
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
   " Airline
   Plug 'vim-airline/vim-airline'
 
