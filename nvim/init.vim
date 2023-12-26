@@ -15,24 +15,25 @@ endif
 
 call plug#begin(data_dir . '/plugins')
 
-source ~/.config/nvim/plugins/ale.vim
-source ~/.config/nvim/plugins/coc.vim
-source ~/.config/nvim/plugins/doorboy.vim
-source ~/.config/nvim/plugins/goyo.vim
-source ~/.config/nvim/plugins/iceberg.vim
-source ~/.config/nvim/plugins/indentLine.vim
-source ~/.config/nvim/plugins/lualine.vim
-source ~/.config/nvim/plugins/markdown-preview.vim
-source ~/.config/nvim/plugins/pandoc.vim
-source ~/.config/nvim/plugins/semshi.vim
-source ~/.config/nvim/plugins/telescope.vim
-source ~/.config/nvim/plugins/vim-commentary.vim
-source ~/.config/nvim/plugins/vim-css-color.vim
-source ~/.config/nvim/plugins/vim-devicons.vim
-source ~/.config/nvim/plugins/vim-flake8.vim
-source ~/.config/nvim/plugins/vim-gitgutter.vim
-source ~/.config/nvim/plugins/vim-snakemake.vim
-source ~/.config/nvim/plugins/vim-startify.vim
+Plug 'shaunsingh/nord.nvim'                                     " Nord colorscheme
+Plug 'dense-analysis/ale'                                       " Asynchronous syntac checking
+Plug 'itmammoth/doorboy.vim'                                    " Auto closing brackets/quatations
+Plug 'junegunn/goyo.vim'                                        " Distraction-free writing in Vim
+Plug 'nvim-lualine/lualine.nvim'                                " Neovim statusline
+Plug 'nvim-tree/nvim-web-devicons'                              " Neovim statusline icons
+Plug 'ryanoasis/vim-devicons'                                   " Vim plugin icons
+Plug 'Yggdroot/indentline'                                      " Display vertical lines at each indentation level
+Plug 'airblade/vim-gitgutter'                                   " Shows git diff markers
+Plug 'tpope/vim-commentary'                                     " Comment stuff out
+Plug 'ap/vim-css-color'                                         " Color name highlighter
+Plug 'raivivek/vim-snakemake'                                   " Snakemake syntax highlight
+Plug 'mhinz/vim-startify'                                       " Fancy start screen
+Plug 'nvie/vim-flake8'                                          " Flake8 checker
+Plug 'nvim-lua/plenary.nvim'                                    " Telescope dependency
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }        " Fuzzy finder
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}     " Tree-sitter interface for Neovim
+Plug 'preservim/nerdtree'                                       " Tree explorer plugin
+"source ~/.config/nvim/plugins/coc.vim
 
 call plug#end()
 
@@ -50,6 +51,7 @@ let g:startify_custom_header = [
 "-----------------------------------------------------------
 
 let g:python3_host_prog = '/home/tmasson/miniconda3/bin/python'
+set omnifunc=ale#completion#OmniFunc
 set splitbelow
 set splitright
 filetype plugin indent on
@@ -59,26 +61,26 @@ syntax enable
 set spelllang=en,es 
 set laststatus=2
 set noshowmode
-let g:lightline = {
-      \ 'colorscheme': 'icebergDark',
-      \ }
 set ignorecase                    " ignore case when searching
 set smartcase                     " turn on smartcase
 set expandtab
 set autoindent
+set tabstop=4
+set shiftwidth=4
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 set updatetime=100
 au BufNewFile,BufRead Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
-set t_Co=256
-colorscheme iceberg
+colorscheme nord 
+
+" Set statusline"
+lua << END
+require('lualine').setup()
+options = {theme = 'nord'}
+END
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-lua << END
-require('lualine').setup()
-options = {theme = 'iceberg_dark'}
-END
 
 
 "-----------------------------------------------------------
@@ -99,3 +101,10 @@ nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
 nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-l> :wincmd l<CR>
+
+"Find files using Telescope command-line sugar"
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>

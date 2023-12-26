@@ -1,1 +1,0 @@
-Plug 'itmammoth/doorboy.vim'
